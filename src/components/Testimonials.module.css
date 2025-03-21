@@ -1,122 +1,306 @@
 .testimonials {
     padding: 6rem 2rem;
-    background-color: white;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(180deg, rgba(243, 244, 246, 0) 0%, rgba(243, 244, 246, 0.8) 100%);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+}
+
+.decorativeElement1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(79, 70, 229, 0.1));
+    filter: blur(60px);
+    top: -50px;
+    left: -100px;
+    z-index: 0;
+}
+
+.decorativeElement2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.08), rgba(96, 165, 250, 0.08));
+    filter: blur(50px);
+    bottom: -150px;
+    right: -100px;
+    z-index: 0;
+    animation: morphBackground 15s infinite alternate ease-in-out;
+}
+
+@keyframes morphBackground {
+    0% {
+        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    }
+
+    50% {
+        border-radius: 45% 55% 50% 50% / 50% 45% 55% 50%;
+    }
+
+    100% {
+        border-radius: 61% 39% 32% 68% / 65% 32% 68% 35%;
+    }
 }
 
 .heading {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 4rem auto;
+    position: relative;
+    z-index: 2;
 }
 
 .title {
     font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: #111;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #111111;
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #4f46e5);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .highlight {
-    background: linear-gradient(90deg, #2563eb, #4f46e5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #4f46e5;
+    position: relative;
 }
 
 .subtitle {
     font-size: 1.1rem;
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-top: 2rem;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .testimonialCard {
-    background-color: #f9fafb;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
     padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     position: relative;
+    border: 1px solid rgba(229, 231, 235, 0.7);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
 .testimonialCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-.quote {
-    margin-bottom: 2rem;
-    position: relative;
+.testimonialCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #4f46e5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
-.quoteIcon {
-    width: 40px;
-    height: 40px;
-    fill: rgba(37, 99, 235, 0.1);
-    margin-bottom: 1rem;
+.testimonialCard:hover::before {
+    transform: scaleX(1);
 }
 
-.testimonialText {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #444;
-    font-style: italic;
-}
-
-.author {
+.cardHeader {
     display: flex;
     align-items: center;
-    margin-top: auto;
+    margin-bottom: 1.5rem;
 }
 
 .avatarContainer {
+    position: relative;
     margin-right: 1rem;
 }
 
 .avatar {
-    width: 50px;
-    height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.avatarGlow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(96, 165, 250, 0.7), rgba(139, 92, 246, 0.7));
+    filter: blur(15px);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.testimonialCard:hover .avatarGlow {
+    opacity: 0.4;
 }
 
 .authorInfo {
-    display: flex;
-    flex-direction: column;
+    flex: 1;
 }
 
 .authorName {
-    font-size: 1rem;
     font-weight: 600;
+    margin: 0;
+    font-size: 1.1rem;
     color: #111;
-    margin: 0 0 0.2rem 0;
 }
 
 .authorPosition {
-    font-size: 0.85rem;
     color: #666;
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0.5rem 0;
+}
+
+.starRating {
+    display: flex;
+    gap: 2px;
+    font-size: 1rem;
+}
+
+.starFilled {
+    color: #f59e0b;
+}
+
+.starEmpty {
+    color: #d1d5db;
+}
+
+.quote {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    flex: 1;
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    fill: #2563eb;
+}
+
+.testimonialText {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563;
     margin: 0;
+}
+
+.cardFooter {
+    margin-top: auto;
+    height: 10px;
+    position: relative;
+}
+
+.cardDecoration {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(139, 92, 246, 0.15));
+    opacity: 0.6;
+}
+
+.ctaContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.ctaButton {
+    background: transparent;
+    color: #4f46e5;
+    border: 1.5px solid #4f46e5;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.1), rgba(79, 70, 229, 0.1));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.ctaButton:hover {
+    color: #2563eb;
+}
+
+.ctaButton:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.arrowIcon {
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrowIcon {
+    transform: translateX(4px);
 }
 
 @media (prefers-color-scheme: dark) {
     .testimonials {
-        background-color: #0a0a0a;
+        background: linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.6) 100%);
     }
 
     .title {
@@ -124,9 +308,7 @@
     }
 
     .highlight {
-        background: linear-gradient(90deg, #60a5fa, #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #8b5cf6;
     }
 
     .subtitle {
@@ -134,21 +316,8 @@
     }
 
     .testimonialCard {
-        background-color: #111;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .testimonialCard:hover {
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .quoteIcon {
-        fill: rgba(96, 165, 250, 0.2);
-    }
-
-    .testimonialText {
-        color: #aaa;
+        background: rgba(31, 41, 55, 0.7);
+        border-color: rgba(55, 65, 81, 0.5);
     }
 
     .authorName {
@@ -158,24 +327,40 @@
     .authorPosition {
         color: #aaa;
     }
-}
 
-@media (max-width: 992px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
+    .testimonialText {
+        color: #d1d5db;
+    }
+
+    .testimonialCard::before {
+        background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+    }
+
+    .ctaButton {
+        color: #8b5cf6;
+        border-color: #8b5cf6;
+    }
+
+    .ctaButton:hover {
+        color: #a78bfa;
+    }
+
+    .avatar {
+        border-color: #374151;
     }
 }
 
 @media (max-width: 768px) {
     .testimonials {
-        padding: 4rem 1rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
+        padding: 4rem 1.5rem;
     }
 
     .title {
         font-size: 2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
