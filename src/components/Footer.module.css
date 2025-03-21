@@ -1,0 +1,201 @@
+.footer {
+    background-color: #f9fafb;
+    padding: 5rem 2rem 2rem;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+    max-width: 280px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.social a:hover {
+    background-color: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+.links {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.linkGroup {
+    min-width: 120px;
+}
+
+.linkTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #111;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.linkList li {
+    margin-bottom: 0.7rem;
+}
+
+.linkList a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.linkList a:hover {
+    color: #2563eb;
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal a {
+    color: #666;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.legal a:hover {
+    color: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background-color: #0a0a0a;
+    }
+
+    .topSection {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+        background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .description {
+        color: #aaa;
+    }
+
+    .social a {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #aaa;
+    }
+
+    .social a:hover {
+        background-color: #60a5fa;
+        color: #111;
+    }
+
+    .linkTitle {
+        color: #f5f5f5;
+    }
+
+    .linkList a,
+    .legal a,
+    .copyright {
+        color: #aaa;
+    }
+
+    .linkList a:hover,
+    .legal a:hover {
+        color: #60a5fa;
+    }
+}
+
+@media (max-width: 768px) {
+    .topSection {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .links {
+        gap: 2rem;
+    }
+
+    .bottomSection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .brand {
+        max-width: 100%;
+    }
+}

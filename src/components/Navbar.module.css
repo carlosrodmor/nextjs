@@ -1,10 +1,30 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: rgba(232, 226, 220, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    background-color: rgba(232, 226, 220, 0.95);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -12,23 +32,103 @@
     font-weight: bold;
 }
 
-.logo a {
-    color: #333;
+.logoText {
+    color: #111111;
     text-decoration: none;
+    background: linear-gradient(90deg, #BEA1FA, #FF8C4B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .navLinks {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .navLink {
-    color: #555;
+    color: #444;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
 }
 
 .navLink:hover {
-    color: #000;
+    color: #111111;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #BEA1FA, #FF8C4B);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.ctaButton {
+    background: #BEA1FA;
+    color: #111111;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(190, 161, 250, 0.3);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    background: #FF8C4B;
+    box-shadow: 0 6px 15px rgba(255, 140, 75, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background-color: rgba(17, 17, 17, 0.8);
+    }
+
+    .scrolled {
+        background-color: rgba(17, 17, 17, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logoText {
+        background: linear-gradient(90deg, #BEA1FA, #FF8C4B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .navLink {
+        color: #ccc;
+    }
+
+    .navLink:hover {
+        color: #E8E2DC;
+    }
+
+    .navLink::after {
+        background: linear-gradient(90deg, #BEA1FA, #FF8C4B);
+    }
+
+    .ctaButton {
+        background: #BEA1FA;
+        color: #111111;
+        box-shadow: 0 4px 10px rgba(190, 161, 250, 0.3);
+    }
+
+    .ctaButton:hover {
+        background: #FF8C4B;
+        box-shadow: 0 6px 15px rgba(255, 140, 75, 0.4);
+    }
 }

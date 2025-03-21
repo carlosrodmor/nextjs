@@ -1,21 +1,20 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Bricolage_Grotesque } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin']
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin']
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-bricolage',
+  weight: ['400', '500', '600', '700']
 })
 
 export const metadata: Metadata = {
-  title: 'Mi Sitio Web',
-  description: 'Un sitio web creado con Next.js'
+  title: 'Nova | Diseño Web Minimalista y Elegante',
+  description:
+    'Creamos experiencias digitales únicas con un enfoque minimalista y elegante.'
 }
 
 export default function RootLayout({
@@ -25,9 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${bricolage.className} ${bricolage.variable}`}>
         <Navbar />
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
